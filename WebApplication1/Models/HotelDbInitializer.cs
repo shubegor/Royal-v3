@@ -157,7 +157,8 @@ namespace Hotel.Models
             room1.Bookings.Add(booking1);
 
             db.Bookings.Add(booking1);
-            base.Seed(db);
+
+            
         }
     }
 }

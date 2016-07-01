@@ -31,14 +31,7 @@
             Номер <br />
             @Html.DropDownListFor(model => model.Room.Id, ViewBag.Rooms as SelectList)
         </p>
-        <p>
-            
-
-            @foreach (var services in Model.Services)
-            {
-                Html.CheckBoxFor("test", model => model.Services);
-            }
-        </p>
+    
         <p>
             <input type="submit" value="Добавить" />
         </p>

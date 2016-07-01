@@ -20,6 +20,7 @@ namespace Hotel.Models
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Week> Weeks { get; set; }
         public DbSet<Sale> Sales { get; set; }
+   
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
