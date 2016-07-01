@@ -1,0 +1,35 @@
+﻿@model Hotel.Models.Booking
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Информация о бронировании</h2>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.CustomerName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Номер комнаты</dt>
+        <dd>@Html.DisplayFor(model => model.Room.Id)</dd>
+        <dt>Стоимость</dt>
+        <dd>@Html.DisplayFor(model => model.Cost)</dd>
+        <dt>Дата заезда</dt>
+        <dd>@Html.DisplayFor(model => model.ArrivalDate)</dd>
+        <dt>Дата выезда</dt>
+        <dd>@Html.DisplayFor(model => model.DepartureDate)</dd>
+        <dt>Услуги</dt>
+        <dd>
+            <ul>
+                @foreach (var service in Model.Services)
+                {
+                    <li>@service.Name</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) | 
+    @Html.ActionLink("Вернуться", "Index")
+</p>

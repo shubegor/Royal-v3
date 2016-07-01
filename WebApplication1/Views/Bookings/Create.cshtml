@@ -1,0 +1,50 @@
+﻿@model Hotel.Models.Booking
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавить новое бронирование</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Бронирование</legend>
+
+        <p>
+            Имя клиента<br />
+            @Html.EditorFor(model => model.CustomerName)
+        </p>
+        <p>
+            Стоимость<br />
+            @Html.EditorFor(model => model.Cost)
+        </p>
+        <p>
+            Дата заезда<br />
+            @Html.EditorFor(model => model.ArrivalDate)
+        </p>
+        <p>
+            Дата выезда<br />
+            @Html.EditorFor(model => model.DepartureDate)
+        </p>
+        <p>
+            Номер <br />
+            @Html.DropDownListFor(model => model.Room.Id, ViewBag.Rooms as SelectList)
+        </p>
+        <p>
+            
+
+            @foreach (var services in Model.Services)
+            {
+                Html.CheckBoxFor("test", model => model.Services);
+            }
+        </p>
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+

@@ -1,0 +1,34 @@
+﻿@model Hotel.Models.Room
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Изменение номера гостиницы</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Номер</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>
+            Количество мест<br />
+            @Html.EditorFor(model => model.Amount)
+        </p>
+        <p>
+            Категория<br />
+            @Html.EditorFor(model => model.Category)
+        </p>
+        <p>
+            Цена<br />
+            @Html.EditorFor(model => model.Price)
+        </p>
+        <p>
+
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>

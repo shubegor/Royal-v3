@@ -1,0 +1,44 @@
+﻿@model Hotel.Models.Booking
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Изменение параметров бронирования</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Бронирование</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <p>
+            Имя клиента<br />
+            @Html.EditorFor(model => model.CustomerName)
+        </p>
+        <p>
+            Стоимость<br />
+            @Html.EditorFor(model => model.Cost)
+        </p>
+        <p>
+            Дата заезда<br />
+            @Html.EditorFor(model => model.ArrivalDate)
+        </p>
+        <p>
+            Дата выезда<br />
+            @Html.EditorFor(model => model.DepartureDate)
+        </p>
+        <p>
+            Номер <br />
+            @Html.DropDownListFor(model => model.Room.Id, ViewBag.Rooms as SelectList)
+        </p>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+

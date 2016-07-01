@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Hotel.Models.Booking>
+
+@{
+    ViewBag.Title = "Список броней";
+    Layout= "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Бронирование</h2>
+
+<p>
+     @Html.ActionLink("Добавить бронь", "Create")
+</p>
+        <table class="table">
+            <tr>
+                <th>Имя клиента</th>
+                <th>Стоимость</th>
+                <th>Дата заезда</th>
+                <th>Дата выезда</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem =>item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DepartureDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Изменить", "Edit", new { id = item.Id}) | 
+                        @Html.ActionLink("Просмотреть", "Details", new { id=item.Id}) | 
+                        @Html.ActionLink("Удалить", "Delete", new { id = item.Id})
+                    </td>
+                </tr>
+            }
+        </table>
+
+
